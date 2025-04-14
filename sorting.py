@@ -24,18 +24,31 @@ def read_data(file_name):
 # samostatný úkol 1 a 2
 def selection_sort(seznam, direction = "ascending"):
     if direction == "ascending":
-        seznam = seznam.sort()
+        seznam.sort()
     else:
         seznam.sort()
         seznam.reverse()
     return seznam
 
+def bubble_sort(number_array):
+    n = len(number_array)
+    for i in range(n - 1):
+        for num_inx in range(n - i - 1):
+            if number_array[num_inx] > number_array[num_inx + 1]:
+                number_array[num_inx], number_array[num_inx + 1] = number_array[num_inx + 1], number_array[num_inx]
+    print(number_array)
+    return number_array
+
+
+
+
 def main():
     data = read_data("numbers.csv")
     print(data)
     for ales in list(data.values()):
-        selection_sort(ales, "descending")
+        selection_sort(ales, "ascending")
         print(ales)
+    bubble_sort(data["series_1"])
     pass
 
 
